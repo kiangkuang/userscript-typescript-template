@@ -6,18 +6,20 @@ A template for creating userscripts in TypeScript. This repository provides a ba
 
 - Userscripts using TypeScript powered by Vite
 - Configurable userscript headers using [vite-plugin-monkey](https://github.com/lisonge/vite-plugin-monkey)
-- Prettier as formatter with precommit hook to run lint-staged
-- Precommit hook to build latest code so you can use repository as installation link (See [Deployment](#deployment))
+- Prettier as formatter with pre-commit hook to run lint-staged
+- Pre-commit hook to build latest code so you can use repository as installation link (See [Deployment](#deployment))
 
 ## Getting Started
 
 1. Customize your userscript headers in [vite.config.ts][userscriptConfig]
 2. Modify [src/main.ts][inputFile] to implement your userscript logic
-3. Run `npm run build` to build the resulting [script.user.js][outputFile]
+3. Run `npm run dev` to install your script with hot module replacement using vite
+4. Run `npm run build` to build the resulting [script.user.js][outputFile]
+5. Run `npm run preview` to install the built script through the vite dev server
 
 ## Deployment
 
-This template is currently configured with a precommit hook to run
+This template is currently configured with a pre-commit hook to run
 
 ```
 npm run build
@@ -28,7 +30,7 @@ This ensures that the [script.user.js][outputFile] file in the repository will a
 
 This allows users to use this [link][installUrl] as the installation link.
 
-Alternatively, you can remove this behaviour by
+Alternatively, you can remove this behavior by
 
 1. Remove command in [pre-commit](/.husky/pre-commit#L5-L6)
 2. Add `dist` to [.gitignore](/.gitignore)
