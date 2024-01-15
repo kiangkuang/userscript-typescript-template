@@ -9,11 +9,19 @@ A template for creating userscripts in TypeScript. This repository provides a ba
 - Prettier as formatter with pre-commit hook to run lint-staged
 - Pre-commit hook to build latest code so you can use repository as installation link (See [Deployment](#deployment))
 
-## Getting Started
+## Install
 
-1. Customize your userscript headers in [vite.config.ts][userscriptConfig]
-2. Modify [src/main.ts][inputFile] to implement your userscript logic
-3. Run `npm run dev` to install your script with hot module replacement using vite
+1. Install Tampermonkey
+   - [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+   - [FireFox](https://addons.mozilla.org/firefox/addon/tampermonkey)
+   - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+2. [![Install](https://img.shields.io/badge/-Install-blue)][installUrl]
+
+## Development
+
+1. Customize userscript headers in [vite.config.ts][userscriptConfig]
+2. Modify entry file [src/main.ts][inputFile]
+3. Run `npm run dev` to install script with hot module replacement using vite
 4. Run `npm run build` to build the resulting [script.user.js][outputFile]
 5. Run `npm run preview` to install the built script through the vite dev server
 
@@ -30,11 +38,11 @@ This ensures that the [script.user.js][outputFile] file in the repository will a
 
 This allows users to use this [link][installUrl] as the installation link.
 
-Alternatively, you can remove this behavior by
+Alternatively, this behavior can be removed by:
 
 1. Remove command in [pre-commit](/.husky/pre-commit#L5-L6)
 2. Add `dist` to [.gitignore](/.gitignore)
-3. Run `npm run build` whenever you want
+3. Run `npm run build` when needed
 
 [userscriptConfig]: /vite.config.ts#L4
 [inputFile]: /src/main.ts
